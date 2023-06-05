@@ -1,0 +1,84 @@
+1. 
+
+* for creation of database.
+
+create database college;
+
+     STUDENT:-
+* for creation of table
+create table student(
+       Roll_no int auto_increment
+       Name varchar(45),
+       Branch varchar(35),
+      primary key(Roll_no)           
+);
+ 
+    insert data into table :-
+insert into student(roll_no,Name,Branch)values(1,"Saumesh","Computer Science");
+insert into student(roll_no,Name,Branch)values(2,"Saif","Electronic and comm");
+insert into student(roll_no,Name,Branch)values(3,"Vimal","Electroni and Comm");
+     Exam:-
+*for creation of table
+           CREATE TABLE exam(
+            s_code varchar(45) AUTO_INCREMENT,
+            Marks int,
+            Roll_no int,
+            P_code varchar(53),
+    PRIMARY key(s_code),
+    FOREIGN key (Roll_no) REFERENCES student(Roll_no)
+);
+insert data into table :-
+
+INSERT INTO exam(roll_no,s_code,Marks,P_code)VALUES(1,"CS11",50,"CS");
+INSERT INTO exam(roll_no,s_code,Marks,P_code)VALUES(1,"CS12",60,"CS");
+INSERT INTO exam(roll_no,s_code,Marks,P_code)VALUES(2,"EC101",66,"EC");
+INSERT INTO exam(roll_no,s_code,Marks,P_code)VALUES(2,"EC102",70,"EC");
+INSERT INTO exam(roll_no,s_code,Marks,P_code)VALUES(3,"EC101",45,"EC");
+INSERT INTO exam(roll_no,s_code,Marks,P_code)VALUES(3,"EC102",50,"EC");
+
+2.
+for creating database school:-
+
+create database school;
+
+for creating table "Student":-
+
+CREATE table student(
+    FirstName varchar(35),
+    LastName varchar(25),
+    Address varchar(56),
+    City varchar(23),
+    Age int
+);
+
+*Insert data into table :-
+
+INSERT into student(FirstName,LastName,address,City,Age)VALUES("Ramesh","Mourya","34 Anupam Nagar","Mumbai",30);
+
+
+
+3.
+
+*alias command:-
+select First_Name as Employee_Name from employee;
+*to display some records:-
+select First_Name, Joining_Date from employee;
+ for ascending order 
+SELECT * FROM employee ORDER by First_name;
+SELECT * FROM employee order by Salary DESC;
+SELECT Department from employee;
+SELECT * FROM `employee` ORDER BY First_name ASC, Salary DESC;
+SELECT  MAX(Salary) from employee order by Salary;
+Select * from EMPLOYEE where char(joining_date,'Mon')='Jan'
+SELECT  Department, Salary FROM employee ORDER by Salary DESC;
+SELECT e.First_name,e.em_id FROM employee e WHERE e.Salary IN (SELECT max(Salary)from employee GROUP by Department);
+SELECT FIRST_NAME from employee;
+SELECT * from incentive where Incentive_amount>3000;
+SELECT MAX(salary) AS salary 
+FROM employee 
+WHERE salary IN
+(SELECT salary FROM employee MINUS SELECT MAX(salary) 
+FROM employee);
+SELECT Department, MAX(Salary) from employee GROUP by Department;
+
+
